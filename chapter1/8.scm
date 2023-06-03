@@ -1,0 +1,12 @@
+(define (cube-itr guess x)
+  (if (good-enough? guess (improve guess x))
+		guess
+		(cube-itr (improve guess x) x)))
+(define (improve guess x)
+	(approximate x guess)))
+(define (approximate x y)
+	(/ (+ (/ x (* y y)) (* 2 y)) 3))
+(define (good-enough? guess next-guess)
+  (< (abs (- 1.0 (/ guess next-guess))) 0.001))
+(define (cube-root x)
+	(cube-itr 1.0 x))
