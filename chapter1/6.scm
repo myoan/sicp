@@ -17,4 +17,3 @@
 	(* x x))
 (define (sqrt x)
 	(sqrt-itr 1.0 x))
-(sqrt 3)
