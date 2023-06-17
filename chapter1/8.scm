@@ -1,5 +1,5 @@
 (define (cube-itr guess x)
-  (if (good-enough? guess (improve guess x))
+	(if (good-enough? guess (improve guess x))
 		guess
 		(cube-itr (improve guess x) x)))
 (define (improve guess x)

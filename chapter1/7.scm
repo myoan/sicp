@@ -13,3 +13,33 @@
 	(* x x))
 (define (my-sqrt x)
 	(sqrt-itr 1.0 x))
+
+; block structure
+(define (my-sqrt2 x)
+	(define (square x) (* x x))
+	(define (average x y)
+		(/ (+ x y) 2))
+	(define (good-enough? guess x)
+		(< (abs (- (square guess) x)) 0.001))
+	(define (improve guess x)
+		(average guess (/ x guess)))
+	(define (sqrt-itr guess x)
+		(if (good-enough? guess x)
+			guess
+			(sqrt-itr (improve guess x) x)))
+	(sqrt-itr 1.0 x))
+
+; lexical scope
+(define (my-sqrt3 x)
+	(define (square a) (* a a))
+	(define (average a b)
+		(/ (+ a b) 2))
+	(define (good-enough? guess)
+		(< (abs (- (square guess) x)) 0.001))
+	(define (improve guess)
+		(average guess (/ x guess)))
+	(define (sqrt-itr guess)
+		(if (good-enough? guess)
+			guess
+			(sqrt-itr (improve guess))))
+	(sqrt-itr 1.0))
