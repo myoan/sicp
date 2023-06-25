@@ -1,3 +1,4 @@
+#lang racket
 (define tolerance 0.000001)
 
 (define (fixed-point f first-guess)
@@ -5,7 +6,7 @@
 		(< (abs (- v1 v2)) tolerance))
 	(define (try guess)
 		(let
-		  	((next (f guess)))
+			((next (f guess)))
 			((display guess)
 			(newline)
 			(if (close-enough? guess next)

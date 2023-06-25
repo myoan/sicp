@@ -1,3 +1,4 @@
+#lang racket
 (define (charge amt)
 	(define (cc amount kinds-of-coins)
 		(cond ((= amount 0) 1)
@@ -14,3 +15,5 @@
 			((= koc 5) 1)
 			(else 0)))
 	(cc amt 5))
+
+(charge 120)
