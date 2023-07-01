@@ -1,3 +1,4 @@
+#lang racket
 (define (runtime) (current-inexact-milliseconds))
 
 ; --- Prime computation
