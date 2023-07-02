@@ -1,3 +1,5 @@
+#lang racket
+
 ; Continued fraction
 (define tolerance 0.000001)
 (define (fixed-point f first-guess)
@@ -5,7 +7,7 @@
 		(< (abs (- v1 v2)) tolerance))
 	(define (try guess)
 		(let ((next (f guess)))
-		  (if (close-enough? guess next)
+			(if (close-enough? guess next)
 			next
 			(try next))))
 	(try first-guess))
